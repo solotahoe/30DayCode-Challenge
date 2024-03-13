@@ -49,7 +49,7 @@ console.log(addDigits(num))
 
 //solution 2 
 
-function addDigits2(num) {
+function addDigits2(num) {  
     while (num >= 10) {
         num = String(num).split('').map(Number).reduce((acc, digit) => acc + digit, 0);
     }
