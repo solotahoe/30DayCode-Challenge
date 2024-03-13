@@ -43,7 +43,7 @@ function singleNumber(nums){
   return once
 }
 
-// const numsArray = [0,1,0,1,0,1,99];
+const numsArray = [0,1,0,1,0,1,99];
 
 console.log(singleNumber(numsArray))
 
@@ -52,7 +52,7 @@ console.log(singleNumber(numsArray))
 
 
 
-function singleNumber(nums) {
+function singleNumber2(nums) {
     let ones = 0, twos = 0;
    
     for (let num of nums) {
@@ -65,8 +65,8 @@ function singleNumber(nums) {
     return ones;
 }
 
-const numsArray = [0, 1, 0, 1, 0, 1, 99];
-console.log(singleNumber(numsArray));
+const numsArray2 = [0, 1, 0, 1, 0, 1, 99];
+console.log(singleNumber2(numsArray));
 
 
 
