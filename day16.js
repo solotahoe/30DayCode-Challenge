@@ -47,7 +47,7 @@ const nums = [1,1,2];
 // solution 2
 //has a time complexity of 0(n) and uses only constant extra space i.e 0(1); CORRECT IMPLEMENTATION OF THIS PROBLEM
 //cyclic algorithm
-function findDuplicates2(nums) {   
+function findDuplicates2(nums) {       
     const duplicates = [];
     let i = 0;
     while (i < nums.length) {  
