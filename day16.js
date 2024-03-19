@@ -51,7 +51,7 @@ function findDuplicates2(nums) {
     const duplicates = [];
     let i = 0;
     while (i < nums.length) {  
-        console.log(i)
+        // console.log(i)  
         if (nums[i] !== i + 1) {  
             const correctIndex = nums[i] - 1;
             if (nums[correctIndex] === nums[i]) {
