@@ -30,7 +30,7 @@ while(i < nums.length){
    // console.log(nums[i])
    if(nums[i] === 0){
       zeros++
-      nums.splice(i , 1)
+      nums.splice(i , 1)  
    }
    i++
 }
