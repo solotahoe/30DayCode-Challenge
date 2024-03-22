@@ -28,21 +28,31 @@ function wordPattern(pattern, s) {
     for (let i = 0; i < pattern.length; i++) {
         const char = pattern[i];
         const word = words[i];
-
+        console.log(char)
+        console.log(word)
         if (!mapPatternToWord.has(char) && !mapWordToPattern.has(word)) {
             mapPatternToWord.set(char, word);
             mapWordToPattern.set(word, char);
         } else {
-            if (mapPatternToWord.get(char) !== word || mapWordToPattern.get(word) !== char) {
+            if (mapPatternToWord.get(char) !== word || mapWordToPattern.get(word) !== char) {    
                 return false;
             }
         }
     }
+    // console.log(mapPatternToWord)
 
     return true;
 }
 
 // Test cases
+const char = 'absaer';
+const newMap = new Map();
+
+newMap.set("s", 'gukaguo')  
+newMap.set("k", 'kanguio')  
+// console.log(newMap.has("k"))  
+// console.log(char[0])
+
 console.log(wordPattern("abba", "dog cat cat dog")); // Output: true
-console.log(wordPattern("abba", "dog cat cat fish")); // Output: false
-console.log(wordPattern("aaaa", "dog cat cat dog")); // Output: false
+// console.log(wordPattern("abba", "dog cat cat fish")); // Output: false
+// console.log(wordPattern("aaaa", "dog cat cat dog")); // Output: false
