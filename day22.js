@@ -1,35 +1,47 @@
-// You are given two non-negative integers num1 and num2.
+// You are given an integer n, the number of teams in a tournament that has strange rules:
 
-// In one operation, if num1 >= num2, you must subtract num2 from num1, otherwise subtract num1 from num2.
-
-// For example, if num1 = 5 and num2 = 4, subtract num2 from num1, thus obtaining num1 = 1 and num2 = 4. However, if num1 = 4 and num2 = 5, after one operation, num1 = 4 and num2 = 1.
-// Return the number of operations required to make either num1 = 0 or num2 = 0.
+// If the current number of teams is even, each team gets paired with another team. A total of n / 2 matches are played, and n / 2 teams advance to the next round.
+// If the current number of teams is odd, one team randomly advances in the tournament, and the rest gets paired. A total of (n - 1) / 2 matches are played, and (n - 1) / 2 + 1 teams advance to the next round.
+// Return the number of matches played in the tournament until a winner is decided.
 
  
 
 // Example 1:
 
-// Input: num1 = 2, num2 = 3
-// Output: 3
-// Explanation: 
-// - Operation 1: num1 = 2, num2 = 3. Since num1 < num2, we subtract num1 from num2 and get num1 = 2, num2 = 3 - 2 = 1.
-// - Operation 2: num1 = 2, num2 = 1. Since num1 > num2, we subtract num2 from num1.
-// - Operation 3: num1 = 1, num2 = 1. Since num1 == num2, we subtract num2 from num1.
-// Now num1 = 0 and num2 = 1. Since num1 == 0, we do not need to perform any further operations.
-// So the total number of operations required is 3.
+// Input: n = 7
+// Output: 6
+// Explanation: Details of the tournament: 
+// - 1st Round: Teams = 7, Matches = 3, and 4 teams advance.
+// - 2nd Round: Teams = 4, Matches = 2, and 2 teams advance.
+// - 3rd Round: Teams = 2, Matches = 1, and 1 team is declared the winner.
+// Total number of matches = 3 + 2 + 1 = 6.
 // Example 2:
 
-// Input: num1 = 10, num2 = 10
-// Output: 1
-// Explanation: 
-// - Operation 1: num1 = 10, num2 = 10. Since num1 == num2, we subtract num2 from num1 and get num1 = 10 - 10 = 0.
-// Now num1 = 0 and num2 = 10. Since num1 == 0, we are done.
-// So the total number of operations required is 1.
+// Input: n = 14
+// Output: 13
+// Explanation: Details of the tournament:
+// - 1st Round: Teams = 14, Matches = 7, and 7 teams advance.
+// - 2nd Round: Teams = 7, Matches = 3, and 4 teams advance.
+// - 3rd Round: Teams = 4, Matches = 2, and 2 teams advance.
+// - 4th Round: Teams = 2, Matches = 1, and 1 team is declared the winner.
+// Total number of matches = 7 + 3 + 2 + 1 = 13.
 
 
-function countOPeration(num1, num2){
-  
+function numberOFMatches(n){
+    let matches = 0;
+    while(n >= 2){    
+     if(n % 2 !== 0){
+        matches += (n - 1) / 2
+        n = ((n- 1) / 2) + 1 
+     }else if(n % 2 === 0){
+        matches += (n / 2);
+        n = (n / 2);
+     }
+
+    }
+
+  return matches;
 }
-const num1 = 10
-const num2 = 10
-console.log(countOPeration(num1, num2))
+
+const n = 14
+console.log(numberOFMatches(n))
